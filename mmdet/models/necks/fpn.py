@@ -151,11 +151,12 @@ class FPN(BaseModule):
     @auto_fp16()
     def forward(self, inputs):
         """Forward function."""
-        assert len(inputs) == len(self.in_channels)
+        # assert len(inputs) == len(self.in_channels)
 
         # build laterals
         laterals = [
-            lateral_conv(inputs[i + self.start_level])
+            # lateral_conv(inputs[i + self.start_level])
+            lateral_conv(inputs)
             for i, lateral_conv in enumerate(self.lateral_convs)
         ]
 
